@@ -20,7 +20,7 @@ https://liinkiing.github.io/use-socket/globals.html
 import React, { FunctionComponent, useState } from 'react'
 import { SocketProvider, useSocketOn, useSocket, useSocketEmit } from '@liinkiing/use-socket';
 
-const Chat = () => {
+const Chat: FunctionComponent = () => {
   const [messages, setMessages] = useState([]);
 
   const socket = useSocket() // if you want to get access to your socket object
