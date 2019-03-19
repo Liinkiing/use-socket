@@ -75,33 +75,33 @@
 				<p><a href="https://liinkiing.github.io/use-socket/globals.html">https://liinkiing.github.io/use-socket/globals.html</a></p>
 				<h2 id="example">Example</h2>
 				<p><code>`</code>typescript jsx
-					import * as React from &#39;react&#39;
-					import {FunctionComponent} from &#39;react&#39;
-				import {useResize, useKeyboardShortcuts} from &#39;@liinkiing/use-socket&#39;;</p>
-				<p>const App: FunctionComponent = props =&gt; {
-					const { height, width } = useResize()
-				console.log(height, width)</p>
-				<p>  useKeyboardShortcuts([
-					{
-					action: () =&gt; { console.log(&quot;You&#39;ve pressed I or S&quot;)},
-					keys: [&quot;I&quot;, &quot;S&quot;]
-					},
-					{
-					action: () =&gt; { console.log(&quot;You&#39;ve pressed O&quot;)},
-					keys: [&quot;O&quot;]
-					},
-					{
-					action: () =&gt; { console.log(&quot;You&#39;ve pressed U&quot;)},
-					keys: [&quot;U&quot;]
-					}
-					])
-					return (
-					<div>
-						<h1>App</h1>
-					</div>
-					)
-				}</p>
-				<p>export default App
+					import React, { FunctionComponent, useState } from &#39;react&#39;
+				import { SocketProvider, useSocketOn, useSocket, useSocketEmit } from &#39;@liinkiing/use-socket&#39;;</p>
+				<p>const Chat: FunctionComponent = () =&gt; {
+				const [messages, setMessages] = useState([]);</p>
+				<p>  const socket = useSocket() // if you want to get access to your socket object</p>
+				<p>  // useSocketEmit(&quot;chat:send&quot;, { id: &#39;random&#39;, body: &#39;blabla&#39;})
+					// you can use this only if you are in the root body of your functional component
+					// generally, you would use <code>socket = useSocket()</code> and then <code>socket.emit</code>, but maybe
+				// this hook can serve ¯_(ツ)_/¯</p>
+				<p>  useSocketOn(&quot;chat:message&quot;, newMessage =&gt;
+					setMessages([newMessage, ...messages])
+				);</p>
+				<p>  return messages.length ? (
+					<ul>
+						{messages.map(message =&gt; (
+						<li key={message.id}>{message.body}</li>
+						))}
+					</ul>
+					) : (
+					<p>No messages...</p>
+					);
+				};</p>
+				<p>const App: FunctionComponent = () =&gt; (
+					<SocketProvider url="https://your-ws-endpoint-here/">
+						<Chat />
+					</SocketProvider>
+					);
 				<code>`</code></p>
 			</div>
 		</div>

@@ -42,12 +42,13 @@
     "tslint": "^5.13.0",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
-    "socket.io-client": "^2.0.0",
     "tslint-react": "^3.6.0",
     "typescript": "^3.3.3333"
   },
-  "peerDependencies": {
-    "react": "^16.8.0",
+  "dependencies": {
     "socket.io-client": "^2.0.0"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0"
   }
 }
