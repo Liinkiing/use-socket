@@ -1,8 +1,9 @@
 {
   "name": "@liinkiing/use-socket",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Hook into socket!",
   "main": "dist/use-socket.js",
+  "typings": "dist/index.d.ts",
   "types": "dist/index.d.ts",
   "umd:main": "dist/use-socket.umd.js",
   "module": "dist/use-socket.mjs",
@@ -46,7 +47,8 @@
     "typescript": "^3.3.3333"
   },
   "dependencies": {
-    "socket.io-client": "^2.0.0"
+    "socket.io-client": "^2.0.0",
+    "@types/socket.io-client": "^1.4.32"
   },
   "peerDependencies": {
     "react": "^16.8.0"
