@@ -1,0 +1,53 @@
+{
+  "name": "@liinkiing/use-socket",
+  "version": "1.0.0",
+  "description": "Hook into socket!",
+  "main": "dist/use-socket.js",
+  "types": "dist/index.d.ts",
+  "umd:main": "dist/use-socket.umd.js",
+  "module": "dist/use-socket.mjs",
+  "browser": "dist/use-socket.js",
+  "source": "src/index.ts",
+  "repository": "https://github.com/Liinkiing/use-socket",
+  "bugs": "https://github.com/Liinkiing/use-socket/issues",
+  "author": "Omar Jbara <omar.jbara2@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "microbundle -o dist/ --sourcemap false",
+    "dev": "microbundle watch -o dist/ --sourcemap false",
+    "docs": "typedoc --disableOutputCheck --tsconfig ./tsconfig.docs.json --out docs ./src",
+    "commit-docs": "git add ./docs/*"
+  },
+  "keywords": [
+    "hooks",
+    "socketio",
+    "socket.io",
+    "realtime",
+    "react",
+    "typescript"
+  ],
+  "pre-commit": [
+    "docs",
+    "commit-docs"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/polyfill": "^7.2.5",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-react": "^7.0.0",
+    "@types/react": "^16.8.6",
+    "@types/react-dom": "^16.8.2",
+    "@types/socket.io-client": "^1.4.32",
+    "pre-commit": "^1.2.2",
+    "tslint": "^5.13.0",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
+    "socket.io-client": "^2.0.0",
+    "tslint-react": "^3.6.0",
+    "typescript": "^3.3.3333"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0",
+    "socket.io-client": "^2.0.0"
+  }
+}
