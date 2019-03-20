@@ -1,6 +1,6 @@
 {
   "name": "@liinkiing/use-socket",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Hook into socket!",
   "main": "dist/use-socket.js",
   "typings": "dist/index.d.ts",
