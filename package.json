@@ -13,6 +13,9 @@
   "bugs": "https://github.com/Liinkiing/use-socket/issues",
   "author": "Omar Jbara <omar.jbara2@gmail.com>",
   "license": "MIT",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "scripts": {
     "build": "microbundle -o dist/ --sourcemap false",
     "dev": "microbundle watch -o dist/ --sourcemap false",
